@@ -1,0 +1,17 @@
+<svg viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title description">
+  <title id="title">Model Checking</title>
+  <desc id="description">Research themes in model checking.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#080f18"/><stop offset="0.56" stop-color="#10192b"/><stop offset="1" stop-color="#171036"/></linearGradient>
+    <radialGradient id="glow" cx="85%" cy="8%" r="64%"><stop offset="0" stop-color="#ff7f9a" stop-opacity="0.20"/><stop offset="1" stop-color="#ff7f9a" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/><rect width="1600" height="900" fill="url(#glow)"/>
+  <g stroke="#30415a" stroke-width="2" fill="none" opacity="0.62"><line x1="1130" y1="184" x2="1290" y2="145"/><line x1="1290" y1="145" x2="1418" y2="246"/><line x1="1130" y1="184" x2="1220" y2="322"/><line x1="1220" y1="322" x2="1418" y2="246"/><line x1="1220" y1="322" x2="1336" y2="448"/></g>
+  <circle cx="1130" cy="184" r="20" fill="#7f66b5"/><circle cx="1290" cy="145" r="18" fill="#65a8ff"/><circle cx="1418" cy="246" r="20" fill="#c487ff"/><circle cx="1220" cy="322" r="22" fill="#7f66b5" opacity="0.72"/><circle cx="1336" cy="448" r="17" fill="#f2bd4b"/>
+  <rect x="110" y="145" width="1280" height="610" rx="28" fill="#0c1422" fill-opacity="0.88" stroke="#26364a" stroke-width="2"/>
+  <text x="170" y="292" fill="#ffffff" font-size="86" font-weight="700" letter-spacing="-3" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif">Model Checking</text>
+  <text x="172" y="382" fill="#91bbff" font-size="34" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif">Systematic state-space exploration for verifying system properties.</text>
+  <rect x="172" y="448" width="500" height="82" rx="41" fill="none" stroke="#4675b8" stroke-width="2"/><text x="422" y="502" fill="#9cc4ff" font-size="40" text-anchor="middle" font-family="JetBrains Mono,SFMono-Regular,Menlo,Consolas,monospace">Static POR</text>
+  <rect x="710" y="448" width="500" height="82" rx="41" fill="none" stroke="#4675b8" stroke-width="2"/><text x="960" y="502" fill="#9cc4ff" font-size="40" text-anchor="middle" font-family="JetBrains Mono,SFMono-Regular,Menlo,Consolas,monospace">Dynamic POR</text>
+  <text x="172" y="662" fill="#ff8fa3" font-size="40" font-weight="700" textLength="580" lengthAdjust="spacingAndGlyphs" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif">Stateful / Stateless Model Checking</text><circle cx="782" cy="650" r="5" fill="#ff8fa3"/><text x="820" y="662" fill="#ff8fa3" font-size="40" font-weight="700" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif">Soundness and Optimality</text>
+</svg>

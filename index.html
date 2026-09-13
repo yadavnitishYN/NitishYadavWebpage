@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Nitish Yadav — Ph.D Scholar at IIT Madras PACE Lab. Research interests in Formal Methods, Model Checking, and Verifying Distributed Systems.">
+  <meta name="keywords" content="Nitish Yadav, IIT Madras, PACE Lab, Formal Methods, Model Checking, Verifying Distributed Systems">
+  <meta name="author" content="Nitish Yadav">
+  <title>Nitish Yadav</title>
+  <link href="assets/bootstrap.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --red-primary: #1f717a;
+      --red-secondary: #1c005c;
+    }
+
+    body {
+      font-family: 'Kalam', cursive;
+      color: #1f2937;
+      background-color: #f9fafb;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Kalam', cursive;
+      font-variant: small-caps;
+    }
+
+    /* Bump up a few text sizes that read smaller in Kalam */
+    .card-custom p { font-size: 1.1rem; }
+    .course-card p { font-size: 1.1rem; }
+    .news-item p.small { font-size: 1.05rem; }
+    .pub-item .fw-semibold { font-size: 1.15rem; }
+    .pub-item .small { font-size: 1.05rem; }
+
+    /* Small-caps styling to match the nav/brand treatment */
+    .education-card .field,
+    .education-card .institute,
+    .education-card .years,
+    .pub-item .fw-semibold,
+    .pub-item .small {
+      font-variant: small-caps;
+    }
+    .education-card:first-child .degree {
+      font-variant: normal;
+    }
+
+    /* Justified paragraph blocks (academic site style) */
+    .card-custom p,
+    .support-box p,
+    .news-content p,
+    .thrust-content p.small,
+    #publications .pub-item .fw-semibold,
+    section p:not(.text-center):not(.small):not(.mb-0):not(.text-muted) {
+      text-align: justify;
+      hyphens: auto;
+      -webkit-hyphens: auto;
+    }
+
+    /* Keep contact pills and footer text left-aligned */
+    .contact-pill, .keyword, .nav-link-custom {
+      text-align: left !important;
+      hyphens: none;
+    }
+
+    .header-sticky {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: white;
+      box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+    }
+
+    .profile-img-large {
+      width: 220px;
+      height: 270px;
+      object-fit: cover;
+      object-position: center top;
+      border: 4px solid white;
+      box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+      border-radius: 10px;
+    }
+
+    .nav-link-custom {
+      color: #000;
+      font-weight: 700;
+      text-decoration: none;
+      transition: color 0.3s;
+      padding: 0.5rem 1rem;
+      font-size: 1.2rem;
+      font-variant: small-caps;
+    }
+
+    .nav-link-custom:hover { color: var(--red-primary); }
+    .nav-link-custom.active { text-decoration: underline; text-underline-offset: 4px; }
+
+    .hero-gradient {
+      background: linear-gradient(135deg, var(--red-primary) 0%, var(--red-secondary) 100%);
+    }
+
+    .card-custom {
+      background: white;
+      border-radius: 0.5rem;
+      box-shadow: 0 4px 10px -1px rgb(0 0 0 / 0.16);
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      border: none;
+    }
+
+    .name-link {
+      color: var(--red-primary);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .name-link:hover {
+      color: var(--red-secondary);
+      text-decoration: underline;
+    }
+
+    .news-item { padding-left: 1rem; margin-bottom: 1rem; }
+    .news-item-rose { border-left: 4px solid #f43f5e; }
+    .news-item-emerald { border-left: 4px solid #059669; }
+    .news-item-cyan { border-left: 4px solid #06b6d4; }
+    .news-item-orange { border-left: 4px solid #f97316; }
+    .news-item-blue { border-left: 4px solid #3b82f6; }
+    .news-item-purple { border-left: 4px solid #8b5cf6; }
+    .news-item-yellow { border-left: 4px solid #f59e0b; }
+    .news-item-indigo { border-left: 4px solid #6366f1; }
+    .news-item-pink { border-left: 4px solid #ec4899; }
+    .news-item-teal { border-left: 4px solid #14b8a6; }
+    .news-item-green { border-left: 4px solid #10b981; }
+
+    .news-scroll {
+      max-height: 22rem;
+      overflow-y: auto;
+      padding-right: 0.5rem;
+    }
+
+    .news-scroll::-webkit-scrollbar { width: 4px; }
+    .news-scroll::-webkit-scrollbar-track { background: #f1f1f1; }
+    .news-scroll::-webkit-scrollbar-thumb { background: #888; border-radius: 2px; }
+
+    .link-custom {
+      color: var(--red-primary);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+    .link-custom:hover { color: var(--red-secondary); }
+
+    .btn-circle {
+      position: relative;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #fff;
+      color: #000;
+      font-size: 1.2rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.18);
+      transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .btn-circle:hover {
+      background: var(--red-secondary);
+      color: #fff;
+      transform: translateY(-4px);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+    }
+
+    .btn-circle::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: calc(100% + 10px);
+      left: 50%;
+      transform: translate(-50%, 4px);
+      background: #111827;
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: .01em;
+      padding: 4px 10px;
+      border-radius: 6px;
+      white-space: nowrap;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.1s ease, transform 0.1s ease;
+      z-index: 20;
+    }
+
+    .btn-circle::before {
+      content: "";
+      position: absolute;
+      bottom: calc(100% + 5px);
+      left: 50%;
+      transform: translateX(-50%);
+      border: 5px solid transparent;
+      border-top-color: #111827;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.1s ease;
+      z-index: 20;
+    }
+
+    .btn-circle:hover::after,
+    .btn-circle:hover::before {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .btn-circle:hover::after { transform: translate(-50%, 0); }
+
+    .visually-hidden {
+      position: absolute !important;
+      width: 1px; height: 1px;
+      padding: 0; margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .thrust-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+    }
+
+    .thrust-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    }
+
+    .thrust-img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .thrust-content {
+      padding: 1.25rem;
+    }
+
+    .thrust-keywords {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 12px;
+    }
+
+    .keyword {
+      font-size: 11px;
+      padding: 3px 10px;
+      background: #f3f4f6;
+      color: #6b7280;
+      border-radius: 20px;
+    }
+
+    .thrust-publications {
+      display: none;
+      padding: 1rem 1.25rem;
+      background: #f9fafb;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    .thrust-publications.show {
+      display: block;
+    }
+
+    .thrust-pub-item {
+      padding: 0.75rem 0;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .thrust-pub-item:last-child {
+      border-bottom: none;
+    }
+
+    .pub-year {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--red-primary);
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--red-primary);
+    }
+
+    .pub-item {
+      background: white;
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 0.75rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.09);
+    }
+
+    .pub-award {
+      display: inline-block;
+      background: linear-gradient(135deg, #fbbf24, #f59e0b);
+      color: #1f2937;
+      font-size: 10px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 12px;
+      margin-left: 8px;
+    }
+
+    .advisor-card {
+      text-align: center;
+      padding: 1rem;
+      background: #f9fafb;
+      border-radius: 8px;
+    }
+
+    .advisor-card a {
+      color: #1f2937;
+      text-decoration: none;
+    }
+
+    .advisor-card a:hover {
+      color: var(--red-primary);
+    }
+
+    .support-box {
+      background: #f5f5f5;
+      border-left: 4px solid var(--red-primary);
+      padding: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .support-box a {
+      color: var(--red-primary);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .support-box a:hover {
+      text-decoration: underline;
+    }
+
+    .mobile-menu-btn { display: none; }
+
+    @media (max-width: 768px) {
+      .mobile-menu-btn { display: block; }
+      .desktop-nav { display: none; }
+      .mobile-nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+        padding: 1rem;
+      }
+      .mobile-nav.show { display: block; }
+    }
+
+    @media (min-width: 769px) {
+      .mobile-nav { display: none !important; }
+    }
+
+    .thrust-tile-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    .thrust-tile {
+      display: block; border-radius: 14px; overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .thrust-tile:hover { transform: translateY(-5px); box-shadow: 0 12px 28px rgba(0,0,0,0.2); }
+    .thrust-tile img { width: 100%; height: auto; display: block; }
+  
+/* --- open research portfolio (homepage) --- */
+#portfolio .rp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin:14px 0 6px}
+#portfolio .rp-card{position:relative;border:1px solid #e6e0e0;border-radius:12px;background:#ffffff;padding:40px 16px 16px;transition:box-shadow .15s ease}
+#portfolio .rp-card:hover{box-shadow:0 4px 14px rgba(92,0,0,0.08)}
+#portfolio .rp-card h4{font-size:15px;color:#222;margin:0 0 5px}
+#portfolio .rp-card p{font-size:13px;color:#4a4a4a;margin:0;line-height:1.55}
+#portfolio .rp-tags{position:absolute;top:11px;right:12px;left:12px;display:flex;flex-wrap:wrap;gap:6px;justify-content:flex-end}
+#portfolio .tag{display:inline-block;font-family:'SF Mono',Menlo,monospace;font-size:10px;font-weight:600;padding:2px 8px;border-radius:5px;white-space:nowrap}
+#portfolio .t-acc{background:rgba(25,135,84,.12);color:#1a7f4b}
+#portfolio .t-sub{background:rgba(13,110,253,.10);color:#0b5ed7}
+#portfolio .t-prog{background:rgba(240,173,78,.22);color:#8a5a00}
+#portfolio .t-new{background:rgba(111,66,193,.12);color:#6f42c1}
+#portfolio .t-ind{background:rgba(220,53,69,.10);color:#b02a37}
+#portfolio .rp-group{font-family:'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--red-primary);margin:26px 0 2px}
+#portfolio .rp-gtitle{font-size:1.05rem;font-weight:600;color:#222;margin-bottom:4px}
+</style>
+  
+<style>
+  .section-kicker{color:var(--red-primary);font-weight:700;letter-spacing:.04em;text-transform:uppercase;font-size:.78rem;margin-bottom:.35rem}
+  .research-thrust-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+  .research-thrust-tile{display:block;border-radius:14px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,.12);transition:transform .2s ease,box-shadow .2s ease;background:#0d1320}
+  .research-thrust-tile:hover{transform:translateY(-5px);box-shadow:0 12px 28px rgba(0,0,0,.20)}
+  .research-thrust-tile img{width:100%;height:auto;display:block}
+  @media (max-width: 575.98px){.research-thrust-grid{grid-template-columns:1fr;gap:16px}}
+  .education-grid{position:relative;display:flex;flex-direction:column;gap:22px;max-width:920px;margin:0 auto;padding-left:36px}
+  .education-card{position:relative;background:#fff;border:1.5px dashed #aeb4bd;border-radius:10px;padding:1.4rem 6.25rem 1.4rem 1.4rem;min-height:145px}
+  .education-card::before{content:"";position:absolute;z-index:1;left:-33px;top:50%;transform:translateY(-50%);width:10px;height:10px;border-radius:50%;background:var(--red-primary);box-shadow:0 0 0 4px #fff}
+  .education-card::after{content:"";position:absolute;z-index:0;left:-28.5px;top:-11px;bottom:-11px;width:1px;background:#b7bbc2}
+  .education-card:first-child::after{top:50%}
+  .education-card:last-child::after{bottom:50%}
+  .education-card .degree,.education-card .field,.education-card .institute,.education-card .years{text-align:left;hyphens:none;-webkit-hyphens:none}
+  .education-card .degree{font-size:1.1rem;font-weight:700;color:#202735;line-height:1.35;margin:0 0 .7rem}
+  .education-card .field{font-size:1.1rem;line-height:1.5;margin:0 0 .65rem}
+  .education-card .institute{font-size:1.1rem;line-height:1.5;margin:0 0 .65rem}
+  .education-card .institute a{color:var(--red-primary);text-decoration:none}
+  .education-card .institute a:hover{text-decoration:underline}
+  .education-card .years{color:#68707d;font-size:1.1rem;font-weight:500;margin:0}
+  .education-logo{position:absolute;top:1.3rem;right:1.3rem;width:62px;height:62px;object-fit:contain}
+  .teaching-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+  .course-card{background:#fff;border-radius:10px;box-shadow:0 4px 12px rgba(0,0,0,.07);padding:1rem 1.1rem;border-top:3px solid var(--red-primary);height:100%}
+  .course-card p{margin-bottom:.35rem}
+  .course-meta{font-size:.88rem;color:#6b7280}
+  .page-hero{padding:3rem 0}
+  .page-hero h1{margin-bottom:.5rem}
+  .page-section{padding:3rem 0}
+  .pub-item a{color:inherit;text-decoration:none}.pub-item a:hover{text-decoration:underline}
+  .source-note{font-size:.82rem;color:#6b7280}
+  @media (max-width: 767.98px){.profile-img-large{width:180px;height:220px}.page-hero{padding:2.25rem 0}.education-grid{padding-left:28px}.education-card{min-height:140px;padding:1.25rem 5.25rem 1.25rem 1.25rem}.education-card::before{left:-27px;width:9px;height:9px}.education-card::after{left:-23px}.education-logo{top:1.15rem;right:1.15rem;width:52px;height:52px}}
+</style>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Nitish Yadav", "jobTitle": "Ph.D Scholar", "affiliation": {"@type": "CollegeOrUniversity", "name": "Indian Institute of Technology Madras"}, "email": "mailto:cs23d011@smail.iitm.ac.in", "sameAs": ["https://scholar.google.com/citations?user=MtQL75IAAAAJ&hl=en", "https://github.com/yadavnitishYN", "https://orcid.org/0009-0008-9802-3417", "https://www.linkedin.com/in/nitishyadavny"], "knowsAbout": ["Formal Methods", "Model Checking", "Verifying Distributed Systems"]}</script>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Nitish Yadav">
+  <meta property="og:description" content="Nitish Yadav — Ph.D Scholar at IIT Madras PACE Lab. Research interests in Formal Methods, Model Checking, and Verifying Distributed Systems.">
+  <meta name="twitter:card" content="summary">
+</head>
+<body>
+<header class="header-sticky">
+  <div class="container py-3">
+    <div class="d-flex align-items-center justify-content-between position-relative">
+      <div class="d-flex align-items-center gap-2">
+        <a href="https://www.iitm.ac.in/" target="_blank" rel="noopener" style="display:inline-flex;line-height:0;"><img src="images/iitm-logo.svg" alt="IIT Madras logo" style="height:36px;width:auto;"></a>
+        <a href="https://www.cse.iitm.ac.in/" target="_blank" rel="noopener" style="display:inline-flex;line-height:0;"><img src="images/cse-logo.png" alt="CSE IITM logo" style="height:36px;width:auto;"></a>
+        <h1 class="h5 mb-0 fw-bold" style="color:#000;font-size:1.7rem;font-variant:small-caps;"><a href="index.html" style="color:inherit;text-decoration:none">Nitish Yadav</a></h1>
+      </div>
+      <nav class="desktop-nav"><div class="d-flex"><a href="index.html" class="nav-link-custom" data-section="home">Home</a>
+<a href="index.html#research" class="nav-link-custom" data-section="research">Research Interests</a>
+<a href="index.html#publications" class="nav-link-custom" data-section="publications">Publications</a>
+<a href="index.html#education" class="nav-link-custom" data-section="education">Education</a>
+<a href="index.html#teaching" class="nav-link-custom" data-section="teaching">Courses </a>
+<a href="index.html#contact" class="nav-link-custom" data-section="contact">Contact</a></div></nav>
+      <button class="btn mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Open menu" aria-controls="mobileNav" aria-expanded="false">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"></path></svg>
+      </button>
+      <nav class="mobile-nav" id="mobileNav"><div class="d-flex flex-column"><a href="index.html" class="nav-link-custom py-2" data-section="home">Home</a>
+<a href="index.html#research" class="nav-link-custom py-2" data-section="research">Research Interests</a>
+<a href="index.html#publications" class="nav-link-custom py-2" data-section="publications">Publications</a>
+<a href="index.html#education" class="nav-link-custom py-2" data-section="education">Education</a>
+<a href="index.html#teaching" class="nav-link-custom py-2" data-section="teaching">Courses</a>
+<a href="index.html#contact" class="nav-link-custom py-2" data-section="contact">Contact</a></div></nav>
+    </div>
+  </div>
+</header>
+<section id="home" class="hero-gradient py-5 text-white">
+  <div class="container">
+    <div class="row align-items-center g-4">
+      <div class="col-lg-4 order-lg-2 text-center">
+        <img src="images/nitish.jpg" alt="Nitish Yadav" class="profile-img-large">
+      </div>
+      <div class="col-lg-8 order-lg-1 text-center text-lg-start">
+        <h1 class="display-6 fw-bold mb-3">Nitish Yadav</h1>
+        <p class="h5 mb-2 text-center text-lg-start d-flex align-items-center justify-content-center justify-content-lg-start flex-wrap gap-2" style="font-size:1.6rem;">
+          <a href="https://fplaunchpad.org/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;line-height:0;">
+          <img src="images/fplaunchpadlogo.png" alt="FP Launchpad" style="height:2.25rem;width:auto;display:block;">
+          </a>
+          <a href="https://pace.cse.iitm.ac.in/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;line-height:0;">
+            <img src="images/pacelogo.png" alt="PACE Lab" style="height:2.25rem;width:auto;display:block;">
+          </a>
+        </p>
+        <p class="h5 mb-2 text-center text-lg-start d-flex align-items-center justify-content-center justify-content-lg-start flex-wrap gap-2" style="font-size:1.6rem;">
+          <span style="font-variant:normal;">Ph.D</span><span style="font-variant:small-caps;">&nbsp;Scholar</span>
+        </p>
+        <p class="mb-0 text-center text-lg-start"><a href="https://www.cse.iitm.ac.in/" target="_blank" rel="noopener" style="color:white;font-weight:600;text-decoration:none;font-size:1.15rem;font-variant:small-caps;">Computer Science and Engineering</a></p>
+        <p class="mb-4 text-center text-lg-start"><a href="https://www.iitm.ac.in/" target="_blank" rel="noopener" style="color:white;font-weight:600;text-decoration:none;font-size:1.15rem;font-variant:small-caps;">Indian Institute of Technology Madras</a></p>
+        <div class="d-flex justify-content-center justify-content-lg-start flex-wrap gap-3">
+          <a href="mailto:cs23d011@smail.iitm.ac.in" class="btn-circle" data-tooltip="Email" aria-label="Email"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="20" height="20" fill="currentColor"><path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/></svg></a>
+          <a href="https://scholar.google.com/citations?user=MtQL75IAAAAJ&hl=en" target="_blank" rel="noopener" class="btn-circle" data-tooltip="Google Scholar" aria-label="Google Scholar"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="20" height="20" fill="currentColor"><path d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h3v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917l-7.5-3.5Z"/><path d="M4.176 9.032a.5.5 0 0 0-.656.327l-.5 1.7a.5.5 0 0 0 .294.605l4.5 1.8a.5.5 0 0 0 .372 0l4.5-1.8a.5.5 0 0 0 .294-.605l-.5-1.7a.5.5 0 0 0-.656-.327L8 10.466 4.176 9.032Z"/></svg></a>
+          <a href="https://orcid.org/0009-0008-9802-3417" target="_blank" rel="noopener" class="btn-circle" data-tooltip="ORCID" aria-label="ORCID"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.98 0 1.766.802 1.766 1.778 0 .98-.786 1.778-1.766 1.778-.977 0-1.766-.798-1.766-1.778 0-.976.789-1.778 1.766-1.778zm-1.44 3.94h2.88v11.947h-2.88V8.318zm4.751 0h5.11c4.75 0 6.84 3.34 6.84 5.974 0 2.867-2.24 5.973-6.79 5.973h-5.16V8.318zm2.88 2.462v7.02h2.13c3.64 0 4.5-2.6 4.5-3.5 0-1.898-1.21-3.52-4.6-3.52h-2.03z"/></svg></a>
+          <a href="https://github.com/yadavnitishYN" target="_blank" rel="noopener" class="btn-circle" data-tooltip="GitHub" aria-label="GitHub"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" width="22" height="22" fill="currentColor"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></a>
+          <a href="https://www.linkedin.com/in/nitishyadavny" target="_blank" rel="noopener" class="btn-circle" data-tooltip="LinkedIn" aria-label="LinkedIn"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="20" height="20" fill="currentColor"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="py-5 bg-white">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-8">
+        <div class="card-custom h-100">
+          <h2 class="h3 fw-bold mb-4" style="color:#000;">Biography</h2>
+          <p class="mb-0">I am a Ph.D. candidate in the <a href="https://www.cse.iitm.ac.in/" target="_blank" rel="noopener" class="name-link">Department of Computer Science &amp; Engineering</a> at <a href="https://www.iitm.ac.in/" target="_blank" rel="noopener" class="name-link">IIT Madras</a>. I am advised by <a href="https://kartiknagar.github.io/" target="_blank" rel="noopener" class="name-link">Dr. Kartik Nagar</a> and <a href="https://kcsrk.info/" target="_blank" rel="noopener" class="name-link">Dr. KC Sivaramakrishnan</a>, and I am affiliated with <a href="https://fplaunchpad.org/" target="_blank" rel="noopener" class="name-link">FP Launchpad</a> and <a href="https://pace.cse.iitm.ac.in/" target="_blank" rel="noopener" class="name-link">PACE Lab</a> group. I joined the Ph.D. program in January 2024.</p>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="card-custom h-100">
+          <h2 class="h4 fw-bold mb-3" style="color:#000;">News &amp; Updates</h2>
+          <div class="news-item news-item-blue mb-0"><p class="small text-muted mb-0">Will be updated soon…</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="research" class="py-5" style="background:#f9fafb;">
+  <div class="container">
+    <h2 class="h3 fw-bold text-center mb-2">Research Interests</h2>
+    <div class="research-thrust-grid" aria-label="Research interests">
+      <article class="research-thrust-tile">
+        <img src="assets/research/formal_methods1.svg" alt="Formal Methods — mathematical techniques for specifying and verifying systems; Model Checking, SAT/SMT Solver, Assertion, and Specification." loading="lazy">
+      </article>
+      <article class="research-thrust-tile">
+        <img src="assets/research/distributed_systems1.svg" alt="Distributed Systems — verifying correctness in replicated and concurrent systems; State-based CRDTs, Op-based CRDTs, Strong Eventual Consistency, and Declarative Specification." loading="lazy">
+      </article>
+      <article class="research-thrust-tile">
+        <img src="assets/research/model_checking1.svg" alt="Model Checking — systematic state-space exploration for verifying system properties; Static POR, Dynamic POR, Stateful and Stateless Model Checking, Soundness, and Optimality." loading="lazy">
+      </article>
+      
+    </div>
+  </div>
+</section>
+<section id="publications" class="py-5 bg-white">
+  <div class="container">
+    <h2 class="h3 fw-bold text-center mb-5">Publications</h2>
+    <div class="pub-item">
+  <div class="fw-semibold"><a href="https://ieeexplore.ieee.org/abstract/document/10479395" target="_blank" rel="noopener">A methodology for resilient safety-critical infrastructures using statistical model checking</a></div>
+  <div class="small text-muted">R. Kumar, N. Yadav</div>
+  <div class="small" style="color: var(--red-primary);">APSEC 2023, Seoul, Korea, pp. 599–603, 2023.</div>
+</div>
+<div class="pub-item">
+  <div class="fw-semibold"><a href="https://www.sciencedirect.com/science/article/pii/S0167404822002152" target="_blank" rel="noopener">What changed in the cyber-security after COVID-19?</a></div>
+  <div class="small text-muted">R. Kumar, S. Sharma, C. Vachhani, N. Yadav</div>
+  <div class="small" style="color: var(--red-primary);">Computers & Security, Vol. 120, ISSN 0167-4048, p. 102821, 2022.</div>
+</div>
+<div class="pub-item">
+  <div class="fw-semibold"><a href="https://link.springer.com/chapter/10.1007/978-981-19-5037-7_74" target="_blank" rel="noopener">Workload Aware Cost-Based Partial Loading of Raw Data for Limited Storage Resources</a></div>
+  <div class="small text-muted">M. Patel, N. Yadav, M. Bhise</div>
+  <div class="small" style="color: var(--red-primary);">Futuristic Trends in Networks and Computing Technologies, Singapore, pp. 1035–1048, 2022.</div>
+</div>
+<div class="pub-item">
+  <div class="fw-semibold"><a href="https://link.springer.com/chapter/10.1007/978-3-031-11217-1_25" target="_blank" rel="noopener">Aggregate Query Result Correctness Using Pattern Tables</a></div>
+  <div class="small text-muted">N. Yadav, A. Malhotra, S. Patel, M. Bhise</div>
+  <div class="small" style="color: var(--red-primary);">DASFAA 2022, vol. 13248, pp. 347–362, 2022.</div>
+</div>
+<div class="pub-item">
+  <div class="fw-semibold"><a href="https://link.springer.com/chapter/10.1007/978-3-030-14118-9_65" target="_blank" rel="noopener">City Crime Mapping Using Machine Learning Techniques</a></div>
+  <div class="small text-muted">N. Yadav, A. Kumar, R. Bhatnagar, V. Verma</div>
+  <div class="small" style="color: var(--red-primary);">AMLTA 2019, Cairo, Egypt, pp. 656–668, 2020.</div>
+</div>
+    <p class="text-center mt-4 mb-0"><a href="publication.html" class="link-custom">View publication page →</a></p>
+  </div>
+</section>
+<section id="education" class="py-5 bg-white">
+  <div class="container">
+    <h2 class="h3 fw-bold text-center mb-4">Education</h2>
+    <div class="education-grid">
+      <article class="education-card">
+        <img class="education-logo" src="images/iitm-logo.svg" alt="IIT Madras logo" loading="lazy">
+        <h3 class="degree">Ph.D</h3>
+        <p class="field">Computer Science and Engineering</p>
+        <p class="institute"><a href="https://www.iitm.ac.in/" target="_blank" rel="noopener">Indian Institute of Technology Madras</a></p>
+        <p class="years">2023–Present</p>
+      </article>
+      <article class="education-card">
+        <img class="education-logo" src="images/daiict-logo.png" alt="DA-IICT logo" loading="lazy">
+        <h3 class="degree">M.Tech - Information and Communication Technology</h3>
+        <p class="field">Specialization: Software Systems</p>
+        <p class="institute"><a href="https://www.daiict.ac.in" target="_blank" rel="noopener">Dhirubhai Ambani Institute of Information &amp; Communication Technology</a></p>
+        <p class="years">2019–2021</p>
+      </article>
+      <article class="education-card">
+        <img class="education-logo" src="images/manipal-logo.png" alt="Manipal University logo" loading="lazy">
+        <h3 class="degree">B.Tech</h3>
+        <p class="field">Computer Science and Engineering</p>
+        <p class="institute"><a href="https://jaipur.manipal.edu/" target="_blank" rel="noopener">Manipal University Jaipur</a></p>
+        <p class="years">2014–2018</p>
+      </article>
+    </div>
+  </div>
+</section>
+<section id="teaching" class="py-5" style="background:#f9fafb;">
+  <div class="container text-center">
+    <h2 class="h3 fw-bold mb-3">Currently Assisting</h2>
+    <p class="text-muted mb-4">Indian Institute of Technology Madras</p>
+    <div class="row justify-content-center mb-4">
+      <div class="col-md-6 col-lg-4">
+        <div class="course-card text-start">
+          <div class="course-meta"><b>2026 Odd Semester</b></div>
+          <h3 class="h6 fw-bold mt-2">CS3100 — Paradigms of Programming</h3>
+          <p><strong>Instructor:</strong> <a href="https://kartiknagar.github.io/" target="_blank" rel="noopener">Dr. Kartik Nagar</a></p>
+          <p class="mb-0"><strong>My Role:</strong> Teaching Assistant</p>
+        </div>
+      </div>
+    </div>
+    <a href="teaching.html" class="btn btn-outline-dark">Previous Courses...</a>
+  </div>
+</section>
+<section id="contact" class="py-5 hero-gradient text-white">
+  <div class="container text-center">
+    <h2 class="h3 fw-bold mb-4">Get In Touch</h2>
+    <div class="d-flex justify-content-center flex-wrap gap-3 mb-4">
+  <a href="mailto:cs23d011@smail.iitm.ac.in" class="btn-circle" data-tooltip="Email" aria-label="Email"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="20" height="20" fill="currentColor"><path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/></svg></a>
+  <a href="https://scholar.google.com/citations?user=MtQL75IAAAAJ&hl=en" target="_blank" rel="noopener" class="btn-circle" data-tooltip="Google Scholar" aria-label="Google Scholar"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="20" height="20" fill="currentColor"><path d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h3v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917l-7.5-3.5Z"/><path d="M4.176 9.032a.5.5 0 0 0-.656.327l-.5 1.7a.5.5 0 0 0 .294.605l4.5 1.8a.5.5 0 0 0 .372 0l4.5-1.8a.5.5 0 0 0 .294-.605l-.5-1.7a.5.5 0 0 0-.656-.327L8 10.466 4.176 9.032Z"/></svg></a>
+  <a href="https://orcid.org/0009-0008-9802-3417" target="_blank" rel="noopener" class="btn-circle" data-tooltip="ORCID" aria-label="ORCID"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.98 0 1.766.802 1.766 1.778 0 .98-.786 1.778-1.766 1.778-.977 0-1.766-.798-1.766-1.778 0-.976.789-1.778 1.766-1.778zm-1.44 3.94h2.88v11.947h-2.88V8.318zm4.751 0h5.11c4.75 0 6.84 3.34 6.84 5.974 0 2.867-2.24 5.973-6.79 5.973h-5.16V8.318zm2.88 2.462v7.02h2.13c3.64 0 4.5-2.6 4.5-3.5 0-1.898-1.21-3.52-4.6-3.52h-2.03z"/></svg></a>
+  <a href="https://github.com/yadavnitishYN" target="_blank" rel="noopener" class="btn-circle" data-tooltip="GitHub" aria-label="GitHub"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" width="22" height="22" fill="currentColor"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></a>
+  <a href="https://www.linkedin.com/in/nitishyadavny" target="_blank" rel="noopener" class="btn-circle" data-tooltip="LinkedIn" aria-label="LinkedIn"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="20" height="20" fill="currentColor"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg></a>
+</div>
+  </div>
+</section>
+<footer class="py-4 text-white" style="background-color:#111827;">
+  <div class="container">
+    <div class="row align-items-center gy-3">
+      <div class="col-md-5 text-center text-md-start">
+        <p class="mb-1">© 2026 Nitish Yadav. All rights reserved.</p>
+        <div class="d-flex justify-content-center justify-content-md-start align-items-center gap-3 mt-2">
+          <a href="https://fplaunchpad.org/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;line-height:0;">
+            <img src="images/fplaunchpadlogo.png" alt="FP Launchpad" style="height:24px;width:auto;display:block;">
+          </a>
+          <a href="https://pace.cse.iitm.ac.in/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;line-height:0;">
+            <img src="images/pacelogo.png" alt="PACE Lab" style="height:24px;width:auto;display:block;">
+          </a>
+        </div>
+        <p class="small mb-0 mt-2" style="color:rgba(255,255,255,.65);">Last updated: <span id="last-updated">—</span></p>
+      </div>
+      <div class="col-md-7 text-center">
+        <p class="small mb-2" style="letter-spacing:.04em;text-transform:uppercase;font-size:.7rem;color:rgba(255,255,255,.65);">Visitors by Country</p>
+        <a href="https://info.flagcounter.com/mWgE"><img src="https://s05.flagcounter.com/count2/mWgE/bg_E0F0FF/txt_000000/border_000000/columns_5/maxflags_12/viewers_0/labels_0/pageviews_0/flags_0/percent_0/" alt="Flag Counter" border="0"></a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script>
+function toggleMobileMenu(){
+  const mobileNav=document.getElementById('mobileNav');
+  const btn=document.querySelector('.mobile-menu-btn');
+  if(!mobileNav)return;
+  mobileNav.classList.toggle('show');
+  if(btn)btn.setAttribute('aria-expanded', mobileNav.classList.contains('show') ? 'true' : 'false');
+}
+document.addEventListener('click',function(event){
+  const mobileNav=document.getElementById('mobileNav');
+  const mobileBtn=document.querySelector('.mobile-menu-btn');
+  if(mobileNav&&mobileBtn&&!mobileNav.contains(event.target)&&!mobileBtn.contains(event.target)){
+    mobileNav.classList.remove('show'); mobileBtn.setAttribute('aria-expanded','false');
+  }
+});
+document.querySelectorAll('a[href*="#"]').forEach(anchor=>{
+  anchor.addEventListener('click',function(e){
+    const href=this.getAttribute('href');
+    if(!href || href.startsWith('http') || (href.includes('.html') && !href.startsWith('index.html#'))) return;
+    const id=href.includes('#') ? '#'+href.split('#')[1] : href;
+    const target=document.querySelector(id);
+    if(target){e.preventDefault(); const headerOffset=70; const y=target.getBoundingClientRect().top+window.pageYOffset-headerOffset; window.scrollTo({top:y,behavior:'smooth'});}
+    const mobileNav=document.getElementById('mobileNav'); if(mobileNav)mobileNav.classList.remove('show');
+  });
+});
+(function(){
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll('.nav-link-custom[data-section]'));
+  if(!navLinks.length) return;
+  var pageDefaults = { '': 'home', 'index.html': 'home', 'teaching.html': 'teaching', 'publication.html': 'publications' };
+  var path = window.location.pathname.split('/').pop();
+  var defaultSection = pageDefaults[path] || 'home';
+
+  function setActive(section){
+    navLinks.forEach(function(link){
+      link.classList.toggle('active', link.getAttribute('data-section') === section);
+    });
+  }
+
+  var sectionIds = ['home','research','publications','education','teaching'];
+  var sections = sectionIds.map(function(id){ return document.getElementById(id); }).filter(Boolean);
+
+  if(!sections.length){ setActive(defaultSection); return; }
+
+  var headerOffset = 96;
+  var ticking = false;
+
+  function updateActive(){
+    ticking = false;
+    var doc = document.documentElement;
+    var atBottom = (window.innerHeight + window.pageYOffset) >= (doc.scrollHeight - 2);
+    var current = null;
+    if(atBottom){
+      current = sections[sections.length - 1].id;
+    } else {
+      for(var i = 0; i < sections.length; i++){
+        if(sections[i].getBoundingClientRect().top <= headerOffset){
+          current = sections[i].id;
+        }
+      }
+    }
+    setActive(current || defaultSection);
+  }
+
+  function onScroll(){
+    if(!ticking){
+      window.requestAnimationFrame(updateActive);
+      ticking = true;
+    }
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  updateActive();
+})();
+(function(){
+  var lu = document.getElementById('last-updated');
+  if(lu){
+    try {
+      var d = new Date(document.lastModified);
+      lu.textContent = isNaN(d.getTime()) ? document.lastModified : d.toLocaleDateString(undefined, { year:'numeric', month:'long', day:'numeric' });
+    } catch(e){ lu.textContent = document.lastModified; }
+  }
+})();
+</script>
+</body>
+</html>
