@@ -438,6 +438,9 @@
   .courses-scroll::-webkit-scrollbar{height:6px}
   .courses-scroll::-webkit-scrollbar-thumb{background:#d1d5db;border-radius:4px}
   .course-card-scroll{position:relative;flex:0 0 270px;scroll-snap-align:start}
+  .courses-institution-select{border:none;background:transparent;color:#6b7280;font-family:inherit;font-size:1rem;padding:.1rem 1.4rem .1rem 0;cursor:pointer;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 6l4 4 4-4'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right center;background-size:14px}
+  .courses-institution-select:focus{outline:none;color:var(--red-primary)}
+  .course-card-scroll[hidden]{display:none}
   .course-current-badge{position:absolute;top:.7rem;right:.7rem;background:var(--red-primary);color:#fff;font-size:.66rem;font-weight:700;letter-spacing:.02em;padding:.22rem .7rem;border-radius:999px;text-transform:uppercase}
   .courses-nav-btn{position:absolute;top:50%;transform:translateY(-50%);width:38px;height:38px;border-radius:50%;background:#111827;color:#fff;border:none;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 10px rgba(0,0,0,.18);cursor:pointer;z-index:2;transition:background .2s ease}
   .courses-nav-btn:hover{background:var(--red-secondary)}
@@ -620,48 +623,75 @@
     <div class="d-flex justify-content-between align-items-center flex-wrap gap-3 mb-4">
       <div>
         <h2 class="h3 fw-bold mb-1">Courses Assisted</h2>
-        <p class="text-muted mb-0">Indian Institute of Technology Madras</p>
+        <select class="courses-institution-select" id="coursesInstitutionSelect" aria-label="Select institution" onchange="(function(sel){document.querySelectorAll('#coursesScroll [data-institution]').forEach(function(c){c.hidden = c.getAttribute('data-institution') !== sel.value}); document.getElementById('coursesScroll').scrollTo({left:0});})(this)">
+          <option value="iitm">Indian Institute of Technology Madras</option>
+          <option value="daiict">Dhirubhai Ambani Institute of Info. &amp; Comm. Technology</option>
+        </select>
       </div>
       <a href="teaching.html" class="courses-view-all-btn">View all courses <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
     </div>
     <div class="courses-scroll-wrap">
       <button type="button" class="courses-nav-btn courses-nav-prev" aria-label="Scroll courses left" onclick="document.getElementById('coursesScroll').scrollBy({left:-290,behavior:'smooth'})"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3 5 8l5 5"/></svg></button>
       <div class="courses-scroll" id="coursesScroll">
-        <div class="course-card course-card-scroll text-start">
+        <div class="course-card course-card-scroll text-start" data-institution="iitm">
           <span class="course-current-badge">Current</span>
           <div class="course-meta"><b>2026 Odd Semester</b></div>
           <h3 class="h6 fw-bold mt-2">CS3100 — Paradigms of Programming</h3>
           <p><strong>Instructor:</strong> <a href="https://kartiknagar.github.io/" target="_blank" rel="noopener">Dr. Kartik Nagar</a></p>
           <p class="mb-0"><strong>My Role:</strong> TA</p>
         </div>
-        <div class="course-card course-card-scroll text-start">
+        <div class="course-card course-card-scroll text-start" data-institution="iitm">
           <div class="course-meta">2026 · Even Semester</div>
           <h3 class="h6 fw-bold mt-2">CS1234 — Small-Scale Application Development</h3>
           <p><strong>Instructor:</strong> <a href="https://www.cse.iitm.ac.in/~rupesh/" target="_blank" rel="noopener">Prof. Rupesh Nasre</a></p>
           <p class="mb-0"><strong>My Role:</strong> TA</p>
         </div>
-        <div class="course-card course-card-scroll text-start">
+        <div class="course-card course-card-scroll text-start" data-institution="iitm">
           <div class="course-meta">2025 · Odd Semester</div>
           <h3 class="h6 fw-bold mt-2">CS1111 — Problem Solving using Computers</h3>
           <p><strong>Instructor:</strong> <a href="https://kartiknagar.github.io/" target="_blank" rel="noopener">Dr. Kartik Nagar</a></p>
           <p class="mb-0"><strong>My Role:</strong> Lead TA</p>
         </div>
-        <div class="course-card course-card-scroll text-start">
+        <div class="course-card course-card-scroll text-start" data-institution="iitm">
           <div class="course-meta">2025 · Even Semester</div>
           <h3 class="h6 fw-bold mt-2">CS5030 — Automated Program Verification</h3>
           <p><strong>Instructor:</strong> <a href="https://kartiknagar.github.io/" target="_blank" rel="noopener">Dr. Kartik Nagar</a></p>
           <p class="mb-0"><strong>My Role:</strong> TA</p>
         </div>
-        <div class="course-card course-card-scroll text-start">
+        <div class="course-card course-card-scroll text-start" data-institution="iitm">
           <div class="course-meta">2024 · Odd Semester</div>
           <h3 class="h6 fw-bold mt-2">CS3100 — Paradigms of Programming</h3>
           <p><strong>Instructor:</strong> <a href="https://kartiknagar.github.io/" target="_blank" rel="noopener">Dr. Kartik Nagar</a></p>
           <p class="mb-0"><strong>My Role:</strong> TA</p>
         </div>
-        <div class="course-card course-card-scroll text-start">
+        <div class="course-card course-card-scroll text-start" data-institution="iitm">
           <div class="course-meta">2024 · Even Semester</div>
           <h3 class="h6 fw-bold mt-2">CS2810 — OOAID</h3>
           <p><strong>Instructor:</strong> <a href="https://www.cse.iitm.ac.in/~skrishnam/index.html" target="_blank" rel="noopener">K. Sivalingam</a></p>
+          <p class="mb-0"><strong>My Role:</strong> TA</p>
+        </div>
+        <div class="course-card course-card-scroll text-start" data-institution="daiict" hidden>
+          <div class="course-meta">2020–2021 · Even Semester</div>
+          <h3 class="h6 fw-bold mt-2">Software Engineering</h3>
+          <p><strong>Instructor:</strong> <a href="https://www.daiict.ac.in/faculty/saurabh-tiwari" target="_blank" rel="noopener">Dr. Saurabh Tiwari</a></p>
+          <p class="mb-0"><strong>My Role:</strong> TA</p>
+        </div>
+        <div class="course-card course-card-scroll text-start" data-institution="daiict" hidden>
+          <div class="course-meta">2020–2021 · Odd Semester</div>
+          <h3 class="h6 fw-bold mt-2">Database Management System</h3>
+          <p><strong>Instructor:</strong> <a href="https://www.daiict.ac.in/faculty/minal-bhise" target="_blank" rel="noopener">Prof. Minal Bhise</a></p>
+          <p class="mb-0"><strong>My Role:</strong> TA</p>
+        </div>
+        <div class="course-card course-card-scroll text-start" data-institution="daiict" hidden>
+          <div class="course-meta">2019–2020 · Even Semester</div>
+          <h3 class="h6 fw-bold mt-2">Software Engineering</h3>
+          <p><strong>Instructor:</strong> <a href="https://www.daiict.ac.in/faculty/saurabh-tiwari" target="_blank" rel="noopener">Dr. Saurabh Tiwari</a></p>
+          <p class="mb-0"><strong>My Role:</strong> TA</p>
+        </div>
+        <div class="course-card course-card-scroll text-start" data-institution="daiict" hidden>
+          <div class="course-meta">2019–2020 · Odd Semester</div>
+          <h3 class="h6 fw-bold mt-2">Database Management System</h3>
+          <p><strong>Instructor:</strong> <a href="https://www.daiict.ac.in/faculty-details/264" target="_blank" rel="noopener">Dr. P. M. Jat</a></p>
           <p class="mb-0"><strong>My Role:</strong> TA</p>
         </div>
       </div>
