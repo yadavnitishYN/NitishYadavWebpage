@@ -407,6 +407,11 @@
   .research-thrust-tile:hover{transform:translateY(-5px);box-shadow:0 12px 28px rgba(0,0,0,.20)}
   .research-thrust-tile img{width:100%;height:auto;display:block}
   @media (max-width: 575.98px){.research-thrust-grid{grid-template-columns:1fr;gap:16px}}
+  .research-scroll-wrap{position:relative}
+  .research-scroll{display:flex;gap:20px;overflow-x:auto;scroll-behavior:smooth;scroll-snap-type:x proximity;padding:.25rem .25rem 1rem;-webkit-overflow-scrolling:touch}
+  .research-scroll::-webkit-scrollbar{height:6px}
+  .research-scroll::-webkit-scrollbar-thumb{background:#d1d5db;border-radius:4px}
+  .research-thrust-tile-scroll{flex:1 1 300px;min-width:260px;max-width:380px;scroll-snap-align:start}
   .education-grid{position:relative;display:flex;flex-direction:column;gap:22px;max-width:920px;margin:0 auto;padding-left:36px}
   .education-card{position:relative;background:#fff;border:1.5px dashed #aeb4bd;border-radius:10px;padding:1.4rem 6.25rem 1.4rem 1.4rem;min-height:145px}
   .education-card::before{content:"";position:absolute;z-index:1;left:-33px;top:50%;transform:translateY(-50%);width:10px;height:10px;border-radius:50%;background:var(--red-primary);box-shadow:0 0 0 4px #fff}
@@ -425,6 +430,20 @@
   .course-card{background:#fff;border-radius:10px;box-shadow:0 4px 12px rgba(0,0,0,.07);padding:1rem 1.1rem;border-top:3px solid var(--red-primary);height:100%}
   .course-card p{margin-bottom:.35rem}
   .course-meta{font-size:.88rem;color:#6b7280}
+  .courses-view-all-btn{display:inline-flex;align-items:center;gap:.45rem;background:#111827;color:#fff;padding:.55rem 1.15rem;border-radius:999px;font-weight:600;font-size:.88rem;text-decoration:none;white-space:nowrap;transition:background .2s ease}
+  .courses-view-all-btn:hover{background:var(--red-secondary);color:#fff}
+  .courses-view-all-btn svg{width:15px;height:15px}
+  .courses-scroll-wrap{position:relative}
+  .courses-scroll{display:flex;gap:16px;overflow-x:auto;scroll-behavior:smooth;scroll-snap-type:x proximity;padding:.25rem .25rem 1rem;-webkit-overflow-scrolling:touch}
+  .courses-scroll::-webkit-scrollbar{height:6px}
+  .courses-scroll::-webkit-scrollbar-thumb{background:#d1d5db;border-radius:4px}
+  .course-card-scroll{position:relative;flex:0 0 270px;scroll-snap-align:start}
+  .course-current-badge{position:absolute;top:.7rem;right:.7rem;background:var(--red-primary);color:#fff;font-size:.66rem;font-weight:700;letter-spacing:.02em;padding:.22rem .7rem;border-radius:999px;text-transform:uppercase}
+  .courses-nav-btn{position:absolute;top:50%;transform:translateY(-50%);width:38px;height:38px;border-radius:50%;background:#111827;color:#fff;border:none;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 10px rgba(0,0,0,.18);cursor:pointer;z-index:2;transition:background .2s ease}
+  .courses-nav-btn:hover{background:var(--red-secondary)}
+  .courses-nav-prev{left:-14px}
+  .courses-nav-next{right:-14px}
+  @media (max-width: 575.98px){.courses-nav-btn{display:none}}
   .page-hero{padding:3rem 0}
   .page-hero h1{margin-bottom:.5rem}
   .page-section{padding:3rem 0}
@@ -432,7 +451,7 @@
   .source-note{font-size:.82rem;color:#6b7280}
   @media (max-width: 767.98px){.profile-img-large{width:180px;height:220px}.page-hero{padding:2.25rem 0}.education-grid{padding-left:28px}.education-card{min-height:140px;padding:1.25rem 5.25rem 1.25rem 1.25rem}.education-card::before{left:-27px;width:9px;height:9px}.education-card::after{left:-23px}.education-logo{top:1.15rem;right:1.15rem;width:52px;height:52px}}
 </style>
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Nitish Yadav", "jobTitle": "Ph.D Scholar", "affiliation": {"@type": "CollegeOrUniversity", "name": "Indian Institute of Technology Madras"}, "email": "mailto:cs23d011@smail.iitm.ac.in", "sameAs": ["https://scholar.google.com/citations?user=MtQL75IAAAAJ&hl=en", "https://github.com/yadavnitishYN", "https://orcid.org/0009-0008-9802-3417", "https://www.linkedin.com/in/nitishyadavny"], "knowsAbout": ["Formal Methods", "Model Checking", "Verifying Distributed Systems"]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Nitish Yadav", "jobTitle": "Ph.D Scholar", "affiliation": {"@type": "CollegeOrUniversity", "name": "Indian Institute of Technology Madras"}, "email": "mailto:cs23d011@smail.iitm.ac.in", "sameAs": ["https://scholar.google.com/citations?user=MtQL75IAAAAJ&hl=en", "https://github.com/yadavnitishYN", "https://orcid.org/0009-0008-9802-3417", "www.linkedin.com/in/nitishny"], "knowsAbout": ["Formal Methods", "Model Checking", "Verifying Distributed Systems"]}</script>
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Nitish Yadav">
@@ -519,17 +538,20 @@
 <section id="research" class="py-5" style="background:#f9fafb;">
   <div class="container">
     <h2 class="h3 fw-bold text-center mb-2">Research Interests</h2>
-    <div class="research-thrust-grid" aria-label="Research interests">
-      <article class="research-thrust-tile">
-        <img src="assets/research/formal_methods1.svg" alt="Formal Methods — mathematical techniques for specifying and verifying systems; Model Checking, SAT/SMT Solver, Assertion, and Specification." loading="lazy">
-      </article>
-      <article class="research-thrust-tile">
-        <img src="assets/research/distributed_systems1.svg" alt="Distributed Systems — verifying correctness in replicated and concurrent systems; State-based CRDTs, Op-based CRDTs, Strong Eventual Consistency, and Declarative Specification." loading="lazy">
-      </article>
-      <article class="research-thrust-tile">
-        <img src="assets/research/model_checking1.svg" alt="Model Checking — systematic state-space exploration for verifying system properties; Static POR, Dynamic POR, Stateful and Stateless Model Checking, Soundness, and Optimality." loading="lazy">
-      </article>
-      
+    <div class="research-scroll-wrap">
+      <button type="button" class="courses-nav-btn courses-nav-prev" aria-label="Scroll research interests left" onclick="document.getElementById('researchScroll').scrollBy({left:-320,behavior:'smooth'})"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3 5 8l5 5"/></svg></button>
+      <div class="research-scroll" id="researchScroll" aria-label="Research interests">
+        <article class="research-thrust-tile research-thrust-tile-scroll">
+          <img src="assets/research/formal_methods1.svg" alt="Formal Methods — mathematical techniques for specifying and verifying systems; Model Checking, SAT/SMT Solver, Assertion, and Specification." loading="lazy">
+        </article>
+        <article class="research-thrust-tile research-thrust-tile-scroll">
+          <img src="assets/research/distributed_systems1.svg" alt="Distributed Systems — verifying correctness in replicated and concurrent systems; State-based CRDTs, Op-based CRDTs, Strong Eventual Consistency, and Declarative Specification." loading="lazy">
+        </article>
+        <article class="research-thrust-tile research-thrust-tile-scroll">
+          <img src="assets/research/model_checking1.svg" alt="Model Checking — systematic state-space exploration for verifying system properties; Static POR, Dynamic POR, Stateful and Stateless Model Checking, Soundness, and Optimality." loading="lazy">
+        </article>
+      </div>
+      <button type="button" class="courses-nav-btn courses-nav-next" aria-label="Scroll research interests right" onclick="document.getElementById('researchScroll').scrollBy({left:320,behavior:'smooth'})"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></button>
     </div>
   </div>
 </section>
@@ -593,20 +615,57 @@
   </div>
 </section>
 <section id="teaching" class="py-5" style="background:#f9fafb;">
-  <div class="container text-center">
-    <h2 class="h3 fw-bold mb-3">Currently Assisting</h2>
-    <p class="text-muted mb-4">Indian Institute of Technology Madras</p>
-    <div class="row justify-content-center mb-4">
-      <div class="col-md-6 col-lg-4">
-        <div class="course-card text-start">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center flex-wrap gap-3 mb-4">
+      <div>
+        <h2 class="h3 fw-bold mb-1">Courses Assisted</h2>
+        <p class="text-muted mb-0">Indian Institute of Technology Madras</p>
+      </div>
+      <a href="teaching.html" class="courses-view-all-btn">View all courses <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+    </div>
+    <div class="courses-scroll-wrap">
+      <button type="button" class="courses-nav-btn courses-nav-prev" aria-label="Scroll courses left" onclick="document.getElementById('coursesScroll').scrollBy({left:-290,behavior:'smooth'})"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3 5 8l5 5"/></svg></button>
+      <div class="courses-scroll" id="coursesScroll">
+        <div class="course-card course-card-scroll text-start">
+          <span class="course-current-badge">Current</span>
           <div class="course-meta"><b>2026 Odd Semester</b></div>
           <h3 class="h6 fw-bold mt-2">CS3100 — Paradigms of Programming</h3>
           <p><strong>Instructor:</strong> <a href="https://kartiknagar.github.io/" target="_blank" rel="noopener">Dr. Kartik Nagar</a></p>
-          <p class="mb-0"><strong>My Role:</strong> Teaching Assistant</p>
+          <p class="mb-0"><strong>My Role:</strong> TA</p>
+        </div>
+        <div class="course-card course-card-scroll text-start">
+          <div class="course-meta">2026 · Even Semester</div>
+          <h3 class="h6 fw-bold mt-2">CS1234 — Small-Scale Application Development</h3>
+          <p><strong>Instructor:</strong> <a href="https://www.cse.iitm.ac.in/~rupesh/" target="_blank" rel="noopener">Prof. Rupesh Nasre</a></p>
+          <p class="mb-0"><strong>My Role:</strong> TA</p>
+        </div>
+        <div class="course-card course-card-scroll text-start">
+          <div class="course-meta">2025 · Odd Semester</div>
+          <h3 class="h6 fw-bold mt-2">CS1111 — Problem Solving using Computers</h3>
+          <p><strong>Instructor:</strong> <a href="https://kartiknagar.github.io/" target="_blank" rel="noopener">Dr. Kartik Nagar</a></p>
+          <p class="mb-0"><strong>My Role:</strong> Lead TA</p>
+        </div>
+        <div class="course-card course-card-scroll text-start">
+          <div class="course-meta">2025 · Even Semester</div>
+          <h3 class="h6 fw-bold mt-2">CS5030 — Automated Program Verification</h3>
+          <p><strong>Instructor:</strong> <a href="https://kartiknagar.github.io/" target="_blank" rel="noopener">Dr. Kartik Nagar</a></p>
+          <p class="mb-0"><strong>My Role:</strong> TA</p>
+        </div>
+        <div class="course-card course-card-scroll text-start">
+          <div class="course-meta">2024 · Odd Semester</div>
+          <h3 class="h6 fw-bold mt-2">CS3100 — Paradigms of Programming</h3>
+          <p><strong>Instructor:</strong> <a href="https://kartiknagar.github.io/" target="_blank" rel="noopener">Dr. Kartik Nagar</a></p>
+          <p class="mb-0"><strong>My Role:</strong> TA</p>
+        </div>
+        <div class="course-card course-card-scroll text-start">
+          <div class="course-meta">2024 · Even Semester</div>
+          <h3 class="h6 fw-bold mt-2">CS2810 — OOAID</h3>
+          <p><strong>Instructor:</strong> <a href="https://www.cse.iitm.ac.in/~skrishnam/index.html" target="_blank" rel="noopener">K. Sivalingam</a></p>
+          <p class="mb-0"><strong>My Role:</strong> TA</p>
         </div>
       </div>
+      <button type="button" class="courses-nav-btn courses-nav-next" aria-label="Scroll courses right" onclick="document.getElementById('coursesScroll').scrollBy({left:290,behavior:'smooth'})"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></button>
     </div>
-    <a href="teaching.html" class="btn btn-outline-dark">Previous Courses...</a>
   </div>
 </section>
 <section id="contact" class="py-5 hero-gradient text-white">
