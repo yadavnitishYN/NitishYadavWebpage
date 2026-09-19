@@ -429,6 +429,7 @@
       <nav class="desktop-nav"><div class="d-flex"><a href="index.html" class="nav-link-custom" data-section="home">Home</a>
 <a href="index.html#research" class="nav-link-custom" data-section="research">Research Interests</a>
 <a href="index.html#publications" class="nav-link-custom" data-section="publications">Publications</a>
+<a href="index.html#blog" class="nav-link-custom" data-section="blog">Blog</a>
 <a href="index.html#education" class="nav-link-custom" data-section="education">Education</a>
 <a href="index.html#teaching" class="nav-link-custom" data-section="teaching">Courses </a>
 <a href="index.html#contact" class="nav-link-custom" data-section="contact">Contact</a></div></nav>
@@ -438,6 +439,7 @@
       <nav class="mobile-nav" id="mobileNav"><div class="d-flex flex-column"><a href="index.html" class="nav-link-custom py-2" data-section="home">Home</a>
 <a href="index.html#research" class="nav-link-custom py-2" data-section="research">Research Interests</a>
 <a href="index.html#publications" class="nav-link-custom py-2" data-section="publications">Publications</a>
+<a href="index.html#blog" class="nav-link-custom py-2" data-section="blog">Blog</a>
 <a href="index.html#education" class="nav-link-custom py-2" data-section="education">Education</a>
 <a href="index.html#teaching" class="nav-link-custom py-2" data-section="teaching">Courses </a>
 <a href="index.html#contact" class="nav-link-custom py-2" data-section="contact">Contact</a></div></nav>
@@ -495,8 +497,10 @@
         <p class="small mb-0 mt-2" style="color:rgba(255,255,255,.65);">Last updated: <span id="last-updated">—</span></p>
       </div>
       <div class="col-md-7 text-center">
-        <p class="small mb-2" style="letter-spacing:.04em;text-transform:uppercase;font-size:.7rem;color:rgba(255,255,255,.65);">Visitors by Country</p>
-        <a href="https://info.flagcounter.com/mWgE"><img src="https://s05.flagcounter.com/count2/mWgE/bg_E0F0FF/txt_000000/border_000000/columns_5/maxflags_12/viewers_0/labels_0/pageviews_0/flags_0/percent_0/" alt="Flag Counter" border="0" style="max-width:220px;width:100%;height:auto"></a>
+        <div class="d-inline-block" style="max-width:220px;width:100%;">
+          <p class="small mb-2" style="letter-spacing:.04em;text-transform:uppercase;font-size:.7rem;color:rgba(255,255,255,.65);">Visitors by Country</p>
+          <a href="https://info.flagcounter.com/mWgE"><img src="https://s05.flagcounter.com/count2/mWgE/bg_E0F0FF/txt_000000/border_000000/columns_5/maxflags_12/viewers_0/labels_0/pageviews_0/flags_0/percent_0/" alt="Flag Counter" border="0" style="max-width:220px;width:100%;height:auto;display:block;"></a>
+        </div>
       </div>
     </div>
   </div>
@@ -528,7 +532,7 @@ document.querySelectorAll('a[href*="#"]').forEach(anchor=>{
 (function(){
   var navLinks = Array.prototype.slice.call(document.querySelectorAll('.nav-link-custom[data-section]'));
   if(!navLinks.length) return;
-  var pageDefaults = { '': 'home', 'index.html': 'home', 'teaching.html': 'teaching', 'publication.html': 'publications' };
+  var pageDefaults = { '': 'home', 'index.html': 'home', 'teaching.html': 'teaching', 'publication.html': 'publications', 'blog.html': 'blog' };
   var path = window.location.pathname.split('/').pop();
   var defaultSection = pageDefaults[path] || 'home';
 
@@ -538,7 +542,7 @@ document.querySelectorAll('a[href*="#"]').forEach(anchor=>{
     });
   }
 
-  var sectionIds = ['home','research','publications','education','teaching'];
+  var sectionIds = ['home','research','publications','blog','education','teaching'];
   var sections = sectionIds.map(function(id){ return document.getElementById(id); }).filter(Boolean);
 
   if(!sections.length){ setActive(defaultSection); return; }
