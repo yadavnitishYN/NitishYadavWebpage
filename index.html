@@ -3,14 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Nitish Yadav — Ph.D Scholar at IIT Madras PACE Lab. Research interests in Formal Methods, Model Checking, and Verifying Distributed Systems.">
+  <meta name="description" content="Nitish Yadav — Ph.D. Scholar at IIT Madras PACE Lab. Research interests in Formal Methods, Model Checking, and Verifying Distributed Systems.">
   <meta name="keywords" content="Nitish Yadav, IIT Madras, PACE Lab, Formal Methods, Model Checking, Verifying Distributed Systems">
   <meta name="author" content="Nitish Yadav">
   <title>Nitish Yadav</title>
   <link href="assets/bootstrap.min.css" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --red-primary: #1f717a;
@@ -18,39 +15,48 @@
     }
 
     body {
-      font-family: 'Kalam', cursive;
+      font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, Georgia, serif;
       color: #1f2937;
       background-color: #f9fafb;
     }
 
     h1, h2, h3, h4, h5, h6 {
-      font-family: 'Kalam', cursive;
+      font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, Georgia, serif;
       font-variant: small-caps;
     }
 
-    /* Bump up a few text sizes that read smaller in Kalam */
+    /* Bump up a few text sizes that read smaller in Palatino Linotype */
     .card-custom p { font-size: 1.1rem; }
     .card-custom ol, .card-custom li { font-size: 1.1rem; }
-    .course-card p { font-size: 1.1rem; }
+    .card-custom.bio-card p,
+    .card-custom.bio-card ol,
+    .card-custom.bio-card li { font-size: 1rem; }
+    .course-card h3 { font-size: 1.05rem; }
+    .course-card p { font-size: 1rem; }
     .news-item p.small { font-size: 1.05rem; }
     .pub-item .fw-semibold { font-size: 1.15rem; }
     .pub-item .small { font-size: 1.05rem; }
 
+    /* Digits have no small-caps form, so small-caps synthesis leaves them full-size;
+       shrink them separately (via .num-sm, added by script below) to match */
+    .pub-item .num-sm { font-size: 0.75em; }
+
     /* Small-caps styling to match the nav/brand treatment */
     .education-item .institute,
-    .education-item .years,
-    .pub-item .fw-semibold,
-    .pub-item .small {
+    .education-item .years {
       font-variant: small-caps;
     }
 
-    /* Justified paragraph blocks (academic site style) */
-    .card-custom p,
-    .support-box p,
-    .news-content p,
-    .thrust-content p.small,
-    #publications .pub-item .fw-semibold,
-    section p:not(.text-center):not(.small):not(.mb-0):not(.text-muted) {
+    /* text-transform:lowercase first so acronyms in the source (COVID-19, DASFAA, etc.)
+       get shrunk to small caps too, instead of staying full-size and looking mismatched */
+    .pub-item .fw-semibold,
+    .pub-item .small {
+      text-transform: lowercase;
+      font-variant: small-caps;
+    }
+
+    /* Justified content (academic site style) */
+    p, li {
       text-align: justify;
       hyphens: auto;
       -webkit-hyphens: auto;
@@ -410,10 +416,10 @@
   .research-scroll::-webkit-scrollbar-thumb{background:#d1d5db;border-radius:4px}
   .research-thrust-tile-scroll{flex:1 1 300px;min-width:260px;scroll-snap-align:start}
   .education-list{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;justify-content:space-between;gap:2rem 2.5rem}
-  .education-item{position:relative;display:flex;align-items:flex-start;gap:1rem;flex:0 1 380px;min-width:0}
+  .education-item{position:relative;display:flex;align-items:flex-start;gap:1rem;flex:0 1 400px;min-width:0}
   .education-logo{flex:0 0 auto;width:48px;height:48px;object-fit:contain}
   .education-item .degree,.education-item .institute,.education-item .years{text-align:left;hyphens:none;-webkit-hyphens:none}
-  .education-item .degree{font-size:1.1rem;font-weight:700;color:#202735;line-height:1.35;margin:0 0 .3rem}
+  .education-item .degree{font-size:1.1rem;font-weight:700;color:#202735;line-height:1.35;margin:0 0 .3rem;font-variant:normal}
   .education-item .institute{font-size:1.05rem;line-height:1.4;margin:0 0 .3rem}
   .education-item .institute a{color:var(--red-primary);text-decoration:none}
   .education-item .institute a:hover{text-decoration:underline}
@@ -458,11 +464,11 @@
   @media (max-width: 767.98px){.profile-img-large{width:180px;height:220px}.page-hero{padding:2.25rem 0}}
   @media (max-width: 575.98px){.education-item{gap:.65rem}.education-logo{width:36px;height:36px}}
 </style>
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Nitish Yadav", "jobTitle": "Ph.D Scholar", "affiliation": {"@type": "CollegeOrUniversity", "name": "Indian Institute of Technology Madras"}, "email": "mailto:cs23d011@smail.iitm.ac.in", "sameAs": ["https://scholar.google.com/citations?user=MtQL75IAAAAJ&hl=en", "https://github.com/yadavnitishYN", "https://orcid.org/0009-0008-9802-3417", "www.linkedin.com/in/nitishny"], "knowsAbout": ["Formal Methods", "Model Checking", "Verifying Distributed Systems"]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Nitish Yadav", "jobTitle": "Ph.D. Scholar", "affiliation": {"@type": "CollegeOrUniversity", "name": "Indian Institute of Technology Madras"}, "email": "mailto:cs23d011@smail.iitm.ac.in", "sameAs": ["https://scholar.google.com/citations?user=MtQL75IAAAAJ&hl=en", "https://github.com/yadavnitishYN", "https://orcid.org/0009-0008-9802-3417", "www.linkedin.com/in/nitishny"], "knowsAbout": ["Formal Methods", "Model Checking", "Verifying Distributed Systems"]}</script>
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Nitish Yadav">
-  <meta property="og:description" content="Nitish Yadav — Ph.D Scholar at IIT Madras PACE Lab. Research interests in Formal Methods, Model Checking, and Verifying Distributed Systems.">
+  <meta property="og:description" content="Nitish Yadav — Ph.D. Scholar at IIT Madras PACE Lab. Research interests in Formal Methods, Model Checking, and Verifying Distributed Systems.">
   <meta name="twitter:card" content="summary">
 </head>
 <body>
@@ -475,21 +481,15 @@
         <h1 class="h5 mb-0 fw-bold" style="color:#000;font-size:1.7rem;font-variant:small-caps;"><a href="index.html" style="color:inherit;text-decoration:none">Nitish Yadav</a></h1>
       </div>
       <nav class="desktop-nav"><div class="d-flex"><a href="index.html" class="nav-link-custom" data-section="home">Home</a>
-<a href="index.html#research" class="nav-link-custom" data-section="research">Research Interests</a>
 <a href="index.html#publications" class="nav-link-custom" data-section="publications">Publications</a>
 <a href="index.html#blog" class="nav-link-custom" data-section="blog">Blog</a>
-<a href="index.html#education" class="nav-link-custom" data-section="education">Education</a>
-<a href="index.html#teaching" class="nav-link-custom" data-section="teaching">Courses </a>
 <a href="index.html#contact" class="nav-link-custom" data-section="contact">Contact</a></div></nav>
       <button class="btn mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Open menu" aria-controls="mobileNav" aria-expanded="false">
         <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"></path></svg>
       </button>
       <nav class="mobile-nav" id="mobileNav"><div class="d-flex flex-column"><a href="index.html" class="nav-link-custom py-2" data-section="home">Home</a>
-<a href="index.html#research" class="nav-link-custom py-2" data-section="research">Research Interests</a>
 <a href="index.html#publications" class="nav-link-custom py-2" data-section="publications">Publications</a>
 <a href="index.html#blog" class="nav-link-custom py-2" data-section="blog">Blog</a>
-<a href="index.html#education" class="nav-link-custom py-2" data-section="education">Education</a>
-<a href="index.html#teaching" class="nav-link-custom py-2" data-section="teaching">Courses</a>
 <a href="index.html#contact" class="nav-link-custom py-2" data-section="contact">Contact</a></div></nav>
     </div>
   </div>
@@ -511,7 +511,7 @@
           </a>
         </p>
         <p class="h5 mb-2 text-center text-lg-start d-flex align-items-center justify-content-center justify-content-lg-start flex-wrap gap-2" style="font-size:1.6rem;">
-          <span style="font-variant:normal;">Ph.D</span><span style="font-variant:small-caps;">&nbsp;Scholar</span>
+          <span style="font-variant:normal;">Ph.D.</span><span style="font-variant:small-caps;">&nbsp;Scholar</span>
         </p>
         <p class="mb-0 text-center text-lg-start"><a href="https://www.cse.iitm.ac.in/" target="_blank" rel="noopener" style="color:white;font-weight:600;text-decoration:none;font-size:1.15rem;font-variant:small-caps;">Computer Science and Engineering</a></p>
         <p class="mb-4 text-center text-lg-start"><a href="https://www.iitm.ac.in/" target="_blank" rel="noopener" style="color:white;font-weight:600;text-decoration:none;font-size:1.15rem;font-variant:small-caps;">Indian Institute of Technology Madras</a></p>
@@ -530,7 +530,7 @@
   <div class="container">
     <div class="row g-4">
       <div class="col-lg-8">
-        <div class="card-custom h-100">
+        <div class="card-custom h-100 bio-card">
           <h2 class="h3 fw-bold mb-3" style="color:#000;">Biography</h2>
           <p>I'm pursuing <b>Ph.D.</b> in the <a href="https://www.cse.iitm.ac.in/" target="_blank" rel="noopener" class="name-link">Department of Computer Science &amp; Engineering</a> at <a href="https://www.iitm.ac.in/" target="_blank" rel="noopener" class="name-link">IIT Madras</a>, Chennai, India, under the supervision of <a href="https://kartiknagar.github.io/" target="_blank" rel="noopener" class="name-link">Dr. Kartik Nagar</a> and <a href="https://kcsrk.info/" target="_blank" rel="noopener" class="name-link">Dr. KC Sivaramakrishnan</a>. I work in <a href="https://pace.cse.iitm.ac.in/" target="_blank" rel="noopener" class="name-link"><span style="color:maroon;">P</span>rogramming Language, <span style="color:maroon;">A</span>rchitecture and <span style="color:maroon;">C</span>ompilers <span style="color:maroon;">E</span>ducation <span style="color:maroon;">(PACE)</span> Lab</a> and am also a part of <a href="https://fplaunchpad.org/" target="_blank" rel="noopener" class="name-link"><span style="color:maroon;">F</span>unctional <span style="color:maroon;">P</span>rogramming <span style="color:maroon;">(FP)</span> Launchpad</a>, a center for systems research and development in Formal Methods.</p>
           <p>My research areas include <b>Formal Methods</b> and <b>Distributed Systems Verification</b>. My current work revolves around <a href="blog-posts/partial-order-reduction/partial-order-reduction.html" target="_blank" rel="noopener" class="name-link" style="color:darkorange;">Partial-Order Reduction</a> using Symmetry Quotienting to tame combinatorial state-space explosion in asynchronous distributed system executions. I particularly verify and build the following:</p>
@@ -787,6 +787,37 @@
       list.appendChild(item);
     });
   });
+})();
+</script>
+<script>
+(function(){
+  // Digits and symbols like ?, !, & have no small-caps form, so the small-caps
+  // synthesis leaves them full-size; wrap them so CSS can shrink them to match.
+  var BIG_CHARS = /(\d+(?:[\-‐-―]\d+)*|[&?!@#%*+=\/\\|~^<>{}[\]]+)/;
+  function shrinkNumbers(el){
+    var walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null);
+    var nodes = [];
+    var node;
+    while((node = walker.nextNode())) nodes.push(node);
+    nodes.forEach(function(textNode){
+      if(!BIG_CHARS.test(textNode.nodeValue)) return;
+      var parts = textNode.nodeValue.split(BIG_CHARS);
+      var frag = document.createDocumentFragment();
+      parts.forEach(function(part, i){
+        if(!part) return;
+        if(i % 2 === 1){
+          var span = document.createElement('span');
+          span.className = 'num-sm';
+          span.textContent = part;
+          frag.appendChild(span);
+        } else {
+          frag.appendChild(document.createTextNode(part));
+        }
+      });
+      textNode.parentNode.replaceChild(frag, textNode);
+    });
+  }
+  document.querySelectorAll('.pub-item .fw-semibold, .pub-item .small').forEach(shrinkNumbers);
 })();
 </script>
 <script>
